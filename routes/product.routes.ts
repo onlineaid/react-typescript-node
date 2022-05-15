@@ -23,6 +23,20 @@ router.get("/products", async (req: Request, res: Response) => {
   // })
 });
 
-module.exports = router;
+router.get("/product/:id", async (req: Request, res: Response) => {
 
-// export default router ;
+  const product = await Product.findById(req.params.id);
+
+  if (!product) {
+      return 'Product not found!'
+  }
+
+  res.status(200).json({
+      success: true,
+      product
+  })
+
+
+});
+
+module.exports = router;

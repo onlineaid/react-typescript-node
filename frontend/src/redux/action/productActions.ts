@@ -45,12 +45,12 @@ export const getAllProducts: any = async (dispatch: any) => {
 };
 
 // Get single product details by it's mongoose _id 
-export const getProductDetailsById = (id: string) => async (dispatch: any) => {
+export const getProductDetailsById:any = (id: string) => async (dispatch: any) => {
   try {
 
       dispatch({ type: PRODUCT_DETAILS_REQUEST });
 
-      const { data } = await axios.get(`http://localhost:5000/api/v1/products${id}`)
+      const { data } = await axios.get(`http://localhost:5000/api/v1/product/${id}`)
 
       dispatch({
           type: PRODUCT_DETAILS_SUCCESS,
