@@ -1,27 +1,25 @@
 import axios from "axios";
-import {
-  ALL_PRODUCTS_REQUEST,
-  ALL_PRODUCTS_SUCCESS,
-  ALL_PRODUCTS_FAIL,
-  PRODUCT_DETAILS_REQUEST,
-  PRODUCT_DETAILS_SUCCESS,
-  PRODUCT_DETAILS_FAIL,
-} from "../constant/product";
+// import { ProductDetailsActionTypes} from '../../typescript/'
+// import { AppThunk } from "../../redux/store";
+
+import {ProductListActionTypes} from '../../typescript/ProductList'
+import {ProductDetailsActionTypes} from '../../typescript/ProductDetails'
+
 
 // Fetch all product with backend mongoose find() method 
-export const getAllProducts: any = async (dispatch: any) => {
+export const getAllProducts = async (dispatch:any) => {
   try {
-    dispatch({ type: ALL_PRODUCTS_REQUEST });
+    dispatch({ type: ProductListActionTypes.ALL_PRODUCTS_REQUEST });
 
     const { data } = await axios.get(`http://localhost:5000/api/v1/products`);
 
     dispatch({
-      type: ALL_PRODUCTS_SUCCESS,
+      type: ProductListActionTypes.ALL_PRODUCTS_SUCCESS,
       payload: data,
     });
-  } catch (error: any) {
+  } catch (error) {
     dispatch({
-      type: ALL_PRODUCTS_FAIL,
+      type: ProductListActionTypes.ALL_PRODUCTS_FAIL,
       payload: error,
       // payload: error.response.data.message,
     });
@@ -45,21 +43,21 @@ export const getAllProducts: any = async (dispatch: any) => {
 };
 
 // Get single product details by it's mongoose _id 
-export const getProductDetailsById:any = (id: string) => async (dispatch: any) => {
+export const getProductDetailsById = (id: string | undefined) => async (dispatch:any) => {
   try {
 
-      dispatch({ type: PRODUCT_DETAILS_REQUEST });
+      dispatch({ type: ProductDetailsActionTypes.PRODUCT_DETAILS_REQUEST });
 
       const { data } = await axios.get(`http://localhost:5000/api/v1/product/${id}`)
 
       dispatch({
-          type: PRODUCT_DETAILS_SUCCESS,
+          type: ProductDetailsActionTypes.PRODUCT_DETAILS_SUCCESS,
           payload: data.product
       })
 
-  } catch (error: any) {
+  } catch (error) {
       dispatch({
-          type: PRODUCT_DETAILS_FAIL,
+          type: ProductDetailsActionTypes.PRODUCT_DETAILS_FAIL,
           payload: error
           // payload: error.response.data.message
       })

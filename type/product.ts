@@ -1,4 +1,8 @@
-import { Document } from 'mongoose'
+import { Model, Document } from "mongoose";
+
+/**
+ * Represents a product
+ */
 
 export interface Product extends Document  {
     name: string,
@@ -8,21 +12,25 @@ export interface Product extends Document  {
     category: number,
     rating: number,
     imageUrl: string,
-    reviews: string[]
+    reviews: Review[]
 }
 
 export interface Review extends Document  {
-    userId: string,
+    user: string,
     name: string,
     rating: number,
     comment: string
 }
 
-// interface ProductInDatabase extends Product{
-//     user: string,
-//     reviews: Review[]
-// }
+/**
+ * Represents a product w/ reviews
+ */
+ interface ProductInDatabase extends Product {
+    user: string;
+    reviews: Review[];
+  }
 
-// export interface ProductDocument extends ProductInDatabase , Document {}
 
-// export interface ProductModel extends Model <ProductDocument> {}
+export interface ProductDocument extends ProductInDatabase, Document {}
+
+export interface ProductModel extends Model<ProductDocument> {}

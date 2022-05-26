@@ -7,6 +7,7 @@
         "price": 803,
         "category": 0,
         "rating": 4,
+        "countInStock": 0,
         "reviews": []
     },
     {
@@ -17,6 +18,7 @@
         "price": 245,
         "category": 1,
         "rating": 6,
+        "countInStock": 1,
         "reviews": []
     },
     {
@@ -27,6 +29,7 @@
         "price": 295,
         "category": 1,
         "rating": 4,
+        "countInStock": 5,
         "reviews": []
     },
     {
@@ -37,6 +40,7 @@
         "price": 275,
         "category": 2,
         "rating": 2,
+        "countInStock": 5,
         "reviews": []
     },
     {
@@ -47,6 +51,7 @@
         "price": 415,
         "category": 3,
         "rating": 8,
+        "countInStock": 5,
         "reviews": []
     },
     {
@@ -57,6 +62,7 @@
         "price": 580,
         "category": 2,
         "rating": 2,
+        "countInStock": 5,
         "reviews": []
     },
     {
@@ -67,6 +73,7 @@
         "price": 675,
         "category": 1,
         "rating": 9,
+        "countInStock": 1,
         "reviews": []
     },
     {
@@ -77,6 +84,7 @@
         "price": 450,
         "category": 4,
         "rating": 10,
+        "countInStock": 4,
         "reviews": []
     },
     {
@@ -87,6 +95,7 @@
         "price": 395,
         "category": 5,
         "rating": 10,
+        "countInStock": 3,
         "reviews": []
     },
     {
@@ -97,6 +106,7 @@
         "price": 285,
         "category": 5,
         "rating": 7,
+        "countInStock": 5,
         "reviews": []
     }
 ]

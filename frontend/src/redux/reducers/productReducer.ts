@@ -1,22 +1,30 @@
 import {
-    ALL_PRODUCTS_REQUEST,
-    ALL_PRODUCTS_SUCCESS,
-    ALL_PRODUCTS_FAIL,
-    PRODUCT_DETAILS_REQUEST,
-    PRODUCT_DETAILS_SUCCESS,
-    PRODUCT_DETAILS_FAIL,
-} from '../constant/product';
-
+    ProductListAction,
+    ProductListActionTypes,
+    ProductListState,
+    ProductDetailsAction,
+    ProductDetailsActionTypes,
+    ProductDetailsState,
+  } from "../../typescript";
 
 // Get Request @Get all product using axios
-export const getAllProductReducer = (state ={products : []}, action:any ) => {
+
+const initialProductListState:ProductListState = {
+    products: [],
+    loading: false,
+  };
+
+
+//   state = {products: []}, action:any
+export const getAllProductReducer = ( state: ProductListState = initialProductListState,
+    action: ProductListAction  ) => {
     switch (action.type) {
-        case ALL_PRODUCTS_REQUEST:
+        case ProductListActionTypes.ALL_PRODUCTS_REQUEST:
             return { loading: true };
 
-        case ALL_PRODUCTS_SUCCESS:
+        case ProductListActionTypes.ALL_PRODUCTS_SUCCESS:
             return { products: action.payload, loading: false };
-        case ALL_PRODUCTS_FAIL:
+        case ProductListActionTypes.ALL_PRODUCTS_FAIL:
             return { error: action.payload, loading: false };
 
         default:
@@ -25,24 +33,29 @@ export const getAllProductReducer = (state ={products : []}, action:any ) => {
 };
 
 // Get Request @Get single product by it's ID
-export const getSingleProductReducer = (state = { product: [] }, action:any) => {
+const initialProductDetailsState:ProductDetailsState = {
+    product: [],
+    loading: false,
+  };
+
+// state = {product: []}, action: any
+export const getSingleProductReducer = ( state: ProductDetailsState = initialProductDetailsState,
+    action: ProductDetailsAction) => {
     switch (action.type) {
 
-        case PRODUCT_DETAILS_REQUEST:
+        case ProductDetailsActionTypes.PRODUCT_DETAILS_REQUEST:
             return {
-                // ...state,
                 loading: true,
             }
 
-        case PRODUCT_DETAILS_SUCCESS:
+        case ProductDetailsActionTypes.PRODUCT_DETAILS_SUCCESS:
             return {
                 loading: false,
                 product: action.payload
             }
 
-        case PRODUCT_DETAILS_FAIL:
+        case ProductDetailsActionTypes.PRODUCT_DETAILS_FAIL:
             return {
-                // ...state,
                 error: action.payload,
                 loading: false
                 // error : null

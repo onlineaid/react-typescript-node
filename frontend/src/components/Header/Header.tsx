@@ -17,6 +17,8 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Link } from 'react-router-dom';
 
+import { useSelector } from 'react-redux';
+
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -57,7 +59,15 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+
+
 export default function Header() {
+
+  const addtocartreducer = useSelector<any>(state => state.cart);
+  const {cartItems}:any = addtocartreducer;
+
+  // console.log(cartItems.length)
+
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null);
@@ -123,7 +133,7 @@ export default function Header() {
     >
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
+          <Badge badgeContent={5} color="error">
             <MailIcon />
           </Badge>
         </IconButton>
@@ -135,7 +145,7 @@ export default function Header() {
           aria-label="show 17 new notifications"
           color="inherit"
         >
-          <Badge badgeContent={17} color="error">
+          <Badge badgeContent={cartItems.length} color="error">
             <NotificationsIcon />
           </Badge>
         </IconButton>
@@ -157,6 +167,9 @@ export default function Header() {
   );
 
   return (
+    <div>
+
+      
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
@@ -189,7 +202,8 @@ export default function Header() {
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="error">
+              {/* count increment   */}
+              <Badge badgeContent={5} color="error">
                 <MailIcon />
               </Badge>
             </IconButton>
@@ -198,7 +212,8 @@ export default function Header() {
               aria-label="show 17 new notifications"
               color="inherit"
             >
-              <Badge badgeContent={17} color="error">
+              {/* <span>{cartItems.length}</span> */}
+              <Badge badgeContent={cartItems.length} color="error">
                 <NotificationsIcon />
               </Badge>
             </IconButton>
@@ -231,5 +246,8 @@ export default function Header() {
       {renderMobileMenu}
       {renderMenu}
     </Box>
+              {/* <span>{cartItems.length}</span> */}
+
+    </div>
   );
 }

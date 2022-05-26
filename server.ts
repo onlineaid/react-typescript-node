@@ -1,13 +1,13 @@
 import express, { Application, Request, Response } from 'express';
 const connectDB = require('./db/db');
 const cors = require('cors');
-// import bodyParser from 'body-parser';
+import bodyParser from 'body-parser';
 
 // import { createProxyMiddleware } from 'http-proxy-middleware';
 
 const app: Application = express()
 app.use(express.json());
-// app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 
 
