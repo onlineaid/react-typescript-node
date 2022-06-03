@@ -15,9 +15,11 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+// import Link from '@mui/material/Link';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
+import {ReduxState} from '../../typescript/ReduxState'
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -59,14 +61,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-
-
 export default function Header() {
 
-  const addtocartreducer = useSelector<any>(state => state.cart);
-  const {cartItems}:any = addtocartreducer;
-
-  // console.log(cartItems.length)
+  const addtocartreducer = useSelector((state:ReduxState) => state.cart);
+  const {cartItems} = addtocartreducer;
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
@@ -146,10 +144,11 @@ export default function Header() {
           color="inherit"
         >
           <Badge badgeContent={cartItems.length} color="error">
+          {/* <Badge badgeContent={cartItems.length} color="error"> <NotificationsIcon /> </Badge></Link> */}
             <NotificationsIcon />
           </Badge>
         </IconButton>
-        <p>Notifications</p>
+        <p> <Link to='/cart'></Link>Notifications</p>
       </MenuItem>
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
@@ -213,9 +212,13 @@ export default function Header() {
               color="inherit"
             >
               {/* <span>{cartItems.length}</span> */}
-              <Badge badgeContent={cartItems.length} color="error">
-                <NotificationsIcon />
-              </Badge>
+              <Link to='/cart' className='Link-to-page'><Badge badgeContent={cartItems.length} color="error"> <NotificationsIcon /> </Badge></Link>
+              {/* <Badge badgeContent={cartItems.length} color="error"> <NotificationsIcon /> </Badge> */}
+
+               
+              
+                
+              
             </IconButton>
             <IconButton
               size="large"

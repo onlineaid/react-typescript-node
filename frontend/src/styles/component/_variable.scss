@@ -1,0 +1,25 @@
+:root {
+    --dark-bg: #ffffff;
+    --dark-text: #000000bb;
+    --dark-opacity: rgb(126 124 124 / 10%);
+    --dark-hover: rgb(236 236 236);
+    --dark-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --shadow-box: 1px 0px 10px 1px rgb(0 0 0 / 23%);
+  
+    // row color
+    --red: red;
+    --white: #fff;
+  
+    // package color combination 
+    --pkcolor1: coral;
+    --pkcolor2: salmon;
+  }
+  
+  [data-theme="dark"] {
+    --dark-bg: #242526;
+    --dark-text: #b0b3b8;
+    --dark-opacity: #ffffff1a;
+    --dark-hover: #3a3b3c;
+    --dark-shadow: 0 0.125rem 0.25rem rgb(255 255 255 / 14%);
+    --shadow-box: 1px 0px 10px 1px rgba(242, 242, 242, 0.23);
+  }

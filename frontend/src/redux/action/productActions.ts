@@ -1,25 +1,24 @@
 import axios from "axios";
-// import { ProductDetailsActionTypes} from '../../typescript/'
 // import { AppThunk } from "../../redux/store";
-
-import {ProductListActionTypes} from '../../typescript/ProductList'
-import {ProductDetailsActionTypes} from '../../typescript/ProductDetails'
+import {ProductListActionTypes, ProductDetailsActionTypes} from '../../typescript'
 
 
 // Fetch all product with backend mongoose find() method 
+// (keyword = '', pageNumber = '') =>
 export const getAllProducts = async (dispatch:any) => {
   try {
-    dispatch({ type: ProductListActionTypes.ALL_PRODUCTS_REQUEST });
+    dispatch({ type: ProductListActionTypes.PRODUCT_LIST_REQUEST });
 
     const { data } = await axios.get(`http://localhost:5000/api/v1/products`);
+    // const { data } = await axios.get(`http://localhost:5000/api/products?keyword=${keyword}&pageNumber=${pageNumber}`)
 
     dispatch({
-      type: ProductListActionTypes.ALL_PRODUCTS_SUCCESS,
+      type: ProductListActionTypes.PRODUCT_LIST_SUCCESS,
       payload: data,
     });
   } catch (error) {
     dispatch({
-      type: ProductListActionTypes.ALL_PRODUCTS_FAIL,
+      type: ProductListActionTypes.PRODUCT_LIST_FAILURE,
       payload: error,
       // payload: error.response.data.message,
     });

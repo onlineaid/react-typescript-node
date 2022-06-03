@@ -1,16 +1,211 @@
+:root {
+  --dark-bg: #ffffff;
+  --dark-text: #000000bb;
+  --dark-opacity: rgb(126 124 124 / 10%);
+  --dark-hover: rgb(236 236 236);
+  --dark-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --shadow-box: 1px 0px 10px 1px rgb(0 0 0 / 23%);
+  --red: red;
+  --white: #fff;
+  --pkcolor1: coral;
+  --pkcolor2: salmon;
+}
+
+[data-theme=dark] {
+  --dark-bg: #242526;
+  --dark-text: #b0b3b8;
+  --dark-opacity: #ffffff1a;
+  --dark-hover: #3a3b3c;
+  --dark-shadow: 0 0.125rem 0.25rem rgb(255 255 255 / 14%);
+  --shadow-box: 1px 0px 10px 1px rgba(242, 242, 242, 0.23);
+}
+
 .header {
   color: red;
 }
 
+.col-12 {
+  width: 1000px;
+  margin: auto;
+}
+
+.cart-top,
+.cart-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+.cart-top .amount,
+.cart-bottom .amount {
+  color: salmon;
+}
+
+.cart-product {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  border-top: 1px solid #ccc;
+  justify-content: space-between;
+  position: relative;
+  padding: 15px 10px;
+}
+.cart-product .cat-img-with-title {
+  display: flex;
+  align-items: center;
+}
+.cart-product .cat-img-with-title img {
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.cart-product .cat-img-with-title .title-group {
+  padding: 10px;
+  min-width: 300px;
+}
+.cart-product .cat-img-with-title .title-group span {
+  font-weight: 600;
+  color: var(--dark-text);
+  font-size: 12px;
+}
+.cart-product .cart-increment-and-dcrement {
+  order: 1;
+  display: flex;
+  align-items: center;
+  background-color: var(--dark-opacity);
+  padding: 5px;
+  border-radius: 50px;
+  border: 1px solid transparent;
+}
+.cart-product .cart-increment-and-dcrement:hover {
+  color: var(--pkcolor1);
+  border: 1px solid var(--pkcolor2);
+}
+.cart-product .cart-increment-and-dcrement .minus, .cart-product .cart-increment-and-dcrement .plus {
+  width: 30px;
+  height: 30px;
+  background-color: var(--dark-opacity);
+  border-radius: 50px;
+  line-height: 25px;
+  align-items: center;
+  font-size: 20px;
+  color: var(--dark-text);
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.9 ease;
+}
+.cart-product .cart-increment-and-dcrement .minus:hover, .cart-product .cart-increment-and-dcrement .plus:hover {
+  color: coral;
+  background: var(--dark-text);
+}
+.cart-product .cart-increment-and-dcrement .counter {
+  padding: 0px 15px;
+  font-size: 20px;
+  font-weight: 500;
+  color: coral;
+}
+.cart-product .price {
+  order: 2;
+}
+.cart-product .cart-minimize {
+  order: 3;
+  width: 30px;
+  height: 30px;
+  background-color: var(--dark-opacity);
+  border-radius: 50px;
+  line-height: 30px;
+  align-items: center;
+  font-size: 20px;
+  color: var(--dark-text);
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-box);
+}
+.cart-product .cart-minimize:hover {
+  color: var(--white);
+  background: var(--red);
+}
+
+.two-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.two-btn a {
+  border-radius: 40px;
+  font-weight: bold;
+  padding: 10px 45px;
+  text-decoration: none;
+  background-color: var(--dark-opacity);
+  color: var(--dark-text);
+  border: 1px solid transparent;
+}
+.two-btn a:hover {
+  color: coral;
+  border: 1px solid salmon;
+}
+
+@media (max-width: 992px) {
+  .cart-product {
+    flex-direction: column;
+  }
+  .cart-product .cat-img-with-title {
+    flex-direction: column;
+  }
+  .cart-product .cat-img-with-title .title-group {
+    text-align: center;
+  }
+  .cart-product .price {
+    order: 1;
+    margin-top: 15px;
+  }
+  .cart-product .cart-increment-and-dcrement {
+    order: 2;
+    margin-top: 15px;
+  }
+  .cart-product .cart-minimize {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+}
+@media (max-width: 578px) {
+  .two-btn {
+    flex-direction: column;
+    align-items: center;
+  }
+  .two-btn .btn-1 {
+    margin-bottom: 15px;
+  }
+
+  .cart-bottom {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 h1 {
   font-size: 30;
   color: red;
+}
+
+.greenColor {
+  color: greenyellow;
+}
+
+.hp {
+  color: green;
+}
+
+.redColor {
+  color: red;
+}
+
+.Link-to-page {
+  color: #fff;
+  line-height: 0;
+}
+.Link-to-page:hover {
+  color: #fff;
 }/*# sourceMappingURL=style.css.map */
-
-.greenColor{
-  color: rgb(0, 179, 255);
-}
-
-.redColor{
-  color:red
-}

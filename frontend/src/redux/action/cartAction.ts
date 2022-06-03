@@ -7,6 +7,7 @@ export const addToCart = (product:Product, quentity:number) => async (dispatch: 
 
         let cartItem = {
             _id : product._id,
+            imageUrl: product.imageUrl,
             name : product.name,
             price: product.price,
             countInStock: product.countInStock,
@@ -16,4 +17,9 @@ export const addToCart = (product:Product, quentity:number) => async (dispatch: 
         dispatch({type: CartActionTypes.CART_ADD_ITEM, payload: cartItem })
 
         localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
+}
+
+
+export const deleteFormCart = (item: any) => async (dispatch: any) => {
+    dispatch({type: CartActionTypes.CART_REMOVE_ITEM, payload: item})
 }

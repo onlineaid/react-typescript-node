@@ -6,6 +6,7 @@ import {
     ProductDetailsActionTypes,
     ProductDetailsState,
   } from "../../typescript";
+  import { PayloadAction } from "@reduxjs/toolkit";
 
 // Get Request @Get all product using axios
 
@@ -14,17 +15,21 @@ const initialProductListState:ProductListState = {
     loading: false,
   };
 
+  // console.log(initialProductListState)
+
 
 //   state = {products: []}, action:any
 export const getAllProductReducer = ( state: ProductListState = initialProductListState,
-    action: ProductListAction  ) => {
+    action: PayloadAction  ) => {
     switch (action.type) {
-        case ProductListActionTypes.ALL_PRODUCTS_REQUEST:
+
+        
+        case ProductListActionTypes.PRODUCT_LIST_REQUEST:
             return { loading: true };
 
-        case ProductListActionTypes.ALL_PRODUCTS_SUCCESS:
+        case ProductListActionTypes.PRODUCT_LIST_SUCCESS:
             return { products: action.payload, loading: false };
-        case ProductListActionTypes.ALL_PRODUCTS_FAIL:
+        case ProductListActionTypes.PRODUCT_LIST_FAILURE:
             return { error: action.payload, loading: false };
 
         default:

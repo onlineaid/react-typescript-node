@@ -11,6 +11,10 @@ export interface Product {
     reviews: Array<Review>
 }
 
+// export interface Products {
+//     products: Product[]
+// }
+
 export interface Review {
     _id: string;
     user: string;

@@ -3,17 +3,15 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductDetailsById } from "../redux/action/productActions";
 import { addToCart } from '../redux/action/cartAction'
-// import { AppDispatch } from "../redux/store";
-// import { ReduxState } from "../typescript/ReduxState";
+import { AppDispatch } from "../redux/store";
+import { ReduxState } from "../typescript/ReduxState";
 
 function ProductDetails() {
-
-
   const [quentity, setQuentity] = useState<number>(1);
 
-  const dispatch = useDispatch<any>();
+  const dispatch = useDispatch<AppDispatch>();
 
-  const getSingleState = useSelector<any>((state) => state.productDetails);
+  const getSingleState = useSelector((state:ReduxState) => state.productDetails);
 
   const { loading, product, error }: any = getSingleState;
 
@@ -27,14 +25,9 @@ function ProductDetails() {
     dispatch(getProductDetailsById(id));
   }, [dispatch, id]);
 
-  // if (!product) {
-  //   return navigate("/shop");
-  // }
-
   function addtocart() {
     dispatch(addToCart(product, quentity))
-    console.log(quentity)
-    // alert(dispatch(addToCart(product, quentity)))
+    // console.log(quentity)
   }
 
   return (
@@ -75,10 +68,6 @@ function ProductDetails() {
             </div>
           </div>
         </div>
-
-        // products.map((product: any) => {
-        //   return <Product product={product} key={product._id} />;
-        // })
       )}
     </div>
   );

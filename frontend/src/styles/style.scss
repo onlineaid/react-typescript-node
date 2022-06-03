@@ -9,6 +9,19 @@ h1{
     color: greenyellow;
 }
 
+.hp{
+    color: green
+}
+
 .redColor{
     color:red
+}
+
+
+.Link-to-page{
+    color: #fff;
+    line-height: 0;
+    &:hover{
+        color: #fff;
+    }
 }
