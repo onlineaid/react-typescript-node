@@ -1,18 +1,16 @@
 import './dist/style.css';
 import './components/Fontawesomeicons'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
-import {Routes, Route} from 'react-router-dom'
 import NotFoundPage from './pages/NotFoundPage';
 import ProductDetails from './pages/ProductDetails';
 import CartViews from './pages/CartViews';
+import Fetch from './components/fetchdata/Fatch'
 
 function App() {
   return (
     <div className="App">
-        {/* <FontAwesomeIcon icon={faCoffee} /> */}
         <Header />
         <div className="container">
 
@@ -22,10 +20,11 @@ function App() {
                 <Route path=':id' element={<ProductDetails /> } />
                 <Route path='*' element={<NotFoundPage />} />
             </Route>
-
-            <Route path='cart' element={<CartViews />} />
-
+            <Route path='/cart' element={<CartViews />} />
             <Route path='*' element={<NotFoundPage />} />
+
+            <Route path='/fetch' element={<Fetch />} />
+
 
           </Routes>
         </div>

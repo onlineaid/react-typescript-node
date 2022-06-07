@@ -9,7 +9,7 @@ export interface Product extends Document  {
     sizes: number[],
     types: number[], 
     price: number,
-    category: number,
+    category: string,
     rating: number,
     imageUrl: string,
     reviews: Review[]

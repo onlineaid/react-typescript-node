@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllProducts } from "../../redux/action/productActions";
 import {AppDispatch} from '../../redux/store';
 import {ReduxState} from '../../typescript/ReduxState'
+import Filter from "../filter/Filter";
 
 function Main() {
   const dispatch = useDispatch<AppDispatch>();
@@ -20,6 +21,7 @@ function Main() {
 
   return (
     <React.Fragment>
+      <Filter />
       <div className="row">
         {loading ? (
           <h1>Loading ....</h1>

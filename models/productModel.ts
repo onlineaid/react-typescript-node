@@ -41,7 +41,7 @@ const productSchema: Schema = new Schema(
       required: true,
     },
     category: {
-      type: Number,
+      type: String,
     },
 
     reviews: [reviewSchema],

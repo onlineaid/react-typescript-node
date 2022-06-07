@@ -5,7 +5,7 @@ export interface Product {
     types: number[];
     sizes: number[];
     price: number;
-    category: number;
+    category: string;
     rating: number;
     countInStock: number[];
     reviews: Array<Review>
